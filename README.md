@@ -4,6 +4,8 @@ SQL (SQLite) reconstruction of the data model I used in the lab to keep 500+ pla
 
 The data are fluorescence time courses (Thioflavin T assays of protein aggregation kinetics) from 96-well plates. Each instrument exports the same information in a different layout, so the loader maps all of them onto one long format: one row per run, well and time point.
 
+**Documentation:** [Data model, data dictionary and source-to-target mapping (PDF, 3 pages)](data_model.pdf). It contains the logical model (ER diagram), relationships and business rules, the full data dictionary, the source-to-target mapping for the readings table, and the load order with source files for all tables.
+
 ## Files
 
 | File | Purpose |
@@ -12,6 +14,7 @@ The data are fluorescence time courses (Thioflavin T assays of protein aggregati
 | `parsers.py` | One parser per instrument layout; each returns `run_id, well, time_s, fluorescence` |
 | `build_db.py` | Rebuilds `plate_reader.db` from scratch: schema, metadata, readings, summary check |
 | `requirements.txt` | Python dependencies (`pandas`, `openpyxl`) |
+| `data_model.pdf` | Logical model, data dictionary and source-to-target mapping |
 
 ## Data model
 
